@@ -1,0 +1,46 @@
+aside {
+   
+
+    background-color: var( --itens-background);
+    border-radius: 10px;
+    height: 100%;
+
+    padding: 40px 16px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+
+
+.lista-links {
+
+   display: flex;
+   flex-direction: column;
+   gap: 3rem;
+   list-style-type: none;
+   align-items: center;
+
+}
+
+.lista-links li a{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--secundary-color);
+    
+}
+
+.lista-links li:first-of-type a{
+    color: var(--primary-color);
+}
+
+
+.link-destaque{
+    border: 1px solid var(--primary-color);
+    padding: 12px 30px;
+    border-radius: 8px;
+}
