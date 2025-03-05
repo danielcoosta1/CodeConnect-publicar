@@ -7,6 +7,7 @@
 <p>
 :heavy_check_mark: Manipulação dos elementos da DOM;</br>
 :heavy_check_mark: Utilização de funções assícronas: Conceito de async/await</br>
+:heavy_check_mark: Verificação de erros através da função Promise() - then() e catch()</br>
 :heavy_check_mark: Verificação de um arquivo upload(imagem): uso da função FileReader() </br>
 </p>
 
