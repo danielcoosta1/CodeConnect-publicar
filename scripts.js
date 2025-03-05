@@ -1,7 +1,7 @@
 const uploadBtn = document.getElementById("upload-btn");
 const inputUpload = document.getElementById("imagem-upload");
 const imagemCarregada = document.querySelector(".imagem-carregada");
-
+const mensagemImagem = document.getElementById("mensagem");
 /////////  UPLOAD DA IMAGEM ///////////
 
 // função assincrona para verificar o arquivo
@@ -153,7 +153,6 @@ inputTags.addEventListener("keypress", async (evento)=>{
 const publicarBt = document.querySelector(".botao-publicar");
 
 //Simulção de envio de dados para um banco de dados
-
 async function publicarProjeto(nomeDoProjeto, descricaoDoProjeto, tagsProjeto) {
   return new Promise((resolve,reject)=>{
     setTimeout(() => {
@@ -168,7 +167,6 @@ async function publicarProjeto(nomeDoProjeto, descricaoDoProjeto, tagsProjeto) {
   });
 } 
 
-
 // Evento de clique no botão PUBLICAR
 publicarBt.addEventListener("click", async (evento)=>{
   evento.preventDefault();
@@ -178,10 +176,6 @@ publicarBt.addEventListener("click", async (evento)=>{
   const descricaoDoProjeto = document.getElementById("descricao").value;
   const tagsProjeto = Array.from(listaTags.querySelectorAll("p")).map((tag)=> tag.textContent);
 
-  // console.log(nomeDoProjeto);
-  // console.log(descricaoDoProjeto);
-  // console.log(tagsProjeto);
-
   await publicarProjeto(nomeDoProjeto,descricaoDoProjeto,tagsProjeto).then((resultado)=>{
     console.log(resultado);
     alert("Deu tudo certo!")
@@ -189,5 +183,20 @@ publicarBt.addEventListener("click", async (evento)=>{
     console.log(erro);
     alert("Algo deu errado, tente novamente");
   })
-  
 })
+
+//Botão Descartar - Limpar formulário
+
+ const botaoDescartar = document.querySelector(".botao-descartar");
+
+ botaoDescartar.addEventListener("click", (e)=>{
+      e.preventDefault();
+      const form = document.querySelector("form");
+      form.reset(); //função especifica para resetar os campos de digitação do formulario
+      //Retornando a imagem para a padrão de quando inicia o site
+      imagemCarregada.src = "./assets/img/imagem1.png";
+      //Retornando o texto inicial embaixo da imagem
+      mensagemImagem.innerText = "imagem_projeto.png";
+      //Resetando a lista de tags
+      listaTags.innerHTML = "";
+ })
