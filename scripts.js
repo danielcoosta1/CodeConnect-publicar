@@ -2,7 +2,9 @@ const uploadBtn = document.getElementById("upload-btn");
 const inputUpload = document.getElementById("imagem-upload");
 const imagemCarregada = document.querySelector(".imagem-carregada");
 
-// Função para ler e verificar o arquivo
+/////////  UPLOAD DA IMAGEM ///////////
+
+// função assincrona para verificar o arquivo
 function verificarImagem(arquivo) {
     return new Promise((resolve, reject) => {
       // Verifica se um arquivo foi selecionado
@@ -66,11 +68,12 @@ function verificarImagem(arquivo) {
       leitor.readAsDataURL(arquivo);
     });
 }
-
+// Evento de clicar no botão UPLOAD
 uploadBtn.addEventListener("click",()=>{
     inputUpload.click();
 });
 
+// Evento de troca de arquivo
 inputUpload.addEventListener("change", async ()=>{
     const arquivo = inputUpload.files[0]; // Pega o primeiro arquivo selecionado
     
@@ -91,12 +94,11 @@ inputUpload.addEventListener("change", async ()=>{
       });
 });
 
-
+///////// TAGS //////////
 const inputTags = document.getElementById("categoria");
 const listaTags = document.querySelector(".lista-tags");
 
-
-
+//Evento de excluir uma tag
 listaTags.addEventListener("click", (evento)=>{
     if(evento.target.classList.contains("remove-tag")){
         const tagRemover = evento.target.parentElement;
@@ -108,6 +110,7 @@ listaTags.addEventListener("click", (evento)=>{
 const tagsDisponiveis = ["Front-End","Programação","Data Science","Full Stack","HTML"
 , "CSS","JavaScript","React", "Angular","Java","PHP","Front-End","NodeJS"];
 
+// Evento para verificar se a tag é válida
 async function verificarTagsDisponiveis(tagTexto) {
     return new Promise ((resolve,reject)=>{
       setTimeout(() => {
@@ -119,10 +122,10 @@ async function verificarTagsDisponiveis(tagTexto) {
         }
       
       }, 1000);
-    })
+    });
 }
 
-
+//Evento de mostrar a tag escolhida(válida) na tela
 inputTags.addEventListener("keypress", async (evento)=>{
   if(evento.key === "Enter"){
       evento.preventDefault();
@@ -143,3 +146,48 @@ inputTags.addEventListener("keypress", async (evento)=>{
       }
   }
 });
+
+
+///////// DADOS DO FORMULÁRIO
+
+const publicarBt = document.querySelector(".botao-publicar");
+
+//Simulção de envio de dados para um banco de dados
+
+async function publicarProjeto(nomeDoProjeto, descricaoDoProjeto, tagsProjeto) {
+  return new Promise((resolve,reject)=>{
+    setTimeout(() => {
+      const deuCerto = Math.random() > 0.5; // condição hipotetica e aleatoria (true ou false)
+      console.log(deuCerto);
+      if(deuCerto){
+        resolve("Projeto publicado com sucesso");
+      } else{
+        reject("Erro ao publicar projeto");
+      }
+    }, 2000);
+  });
+} 
+
+
+// Evento de clique no botão PUBLICAR
+publicarBt.addEventListener("click", async (evento)=>{
+  evento.preventDefault();
+
+  //Declarando as variáveis do formulário
+  const nomeDoProjeto = document.getElementById("nome").value;
+  const descricaoDoProjeto = document.getElementById("descricao").value;
+  const tagsProjeto = Array.from(listaTags.querySelectorAll("p")).map((tag)=> tag.textContent);
+
+  // console.log(nomeDoProjeto);
+  // console.log(descricaoDoProjeto);
+  // console.log(tagsProjeto);
+
+  await publicarProjeto(nomeDoProjeto,descricaoDoProjeto,tagsProjeto).then((resultado)=>{
+    console.log(resultado);
+    alert("Deu tudo certo!")
+  }).catch((erro)=>{
+    console.log(erro);
+    alert("Algo deu errado, tente novamente");
+  })
+  
+})
