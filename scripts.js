@@ -189,6 +189,8 @@ publicarBt.addEventListener("click", async (evento)=>{
 
  const botaoDescartar = document.querySelector(".botao-descartar");
 
+
+ //Evento de resetar o formulário
  botaoDescartar.addEventListener("click", (e)=>{
       e.preventDefault();
       const form = document.querySelector("form");
