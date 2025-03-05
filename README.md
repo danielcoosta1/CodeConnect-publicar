@@ -20,12 +20,11 @@
 <p>:arrow_right:  Neste projeto, foi feito apenas a seção PUBLICAR do sidebar</br>
 </br>
 :heavy_check_mark: Botão com input para carregar imagem</br>
-:heavy_check_mark: Descrição da imagem: Nome do arquivo e tipo</br>
-:heavy_check_mark: Feedback da leitura do arquivo</br>
-:heavy_check_mark: Formulário com campos de digitação sobre o novo projeto</br>
-:heavy_check_mark: Possibilidade de incrementar tags para o projeto, assim como remover</br>
+:heavy_check_mark: Descrição da imagem: Nome do arquivo e tipo, Feedback da leitura do arquivo </br>
+:heavy_check_mark: Formulário com campos de digitação sobre o novo projeto - Nome do projeto, Descrição, Tags</br>
+:heavy_check_mark: TAGS: Possibilidade de incrementar tags para o projeto, assim como remover</br>
 :heavy_check_mark: Botão publicar - Simulando o envio dos dados do formulário para um banco de dados</br>
-:heavy_check_mark: Botão Descartar - Resetando os campos de digitação do formulário, como o upload da imagem e deletando as tags selecionadas</br>
+:heavy_check_mark: Botão Descartar - Voltando a página para o inicio - resetando o formulário, arquivo de upload e descrição da imagem</br>
 </br>
 
 
