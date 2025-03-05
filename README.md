@@ -1,4 +1,4 @@
-<h1>Projeto CodeConnect</h1>
+<h1>Projeto CodeConnect - PUBLICAR</h1>
 <p>Projeto ficticio da plataforma ALURA</p>
 
 
