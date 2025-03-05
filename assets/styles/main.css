@@ -139,7 +139,14 @@ textarea{
 
 .lista-tags{
     display: flex;
+    gap: 16px;
+    object-fit: contain;
+    flex-wrap: wrap;
+    max-width: 90%;
+
 }
+
+
 
 .lista-tags li{
     display: flex;
