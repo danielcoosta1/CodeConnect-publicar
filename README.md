@@ -1,6 +1,6 @@
 <h1>Projeto CodeConnect - PUBLICAR</h1>
 <p>Projeto ficticio da plataforma ALURA
-  Com algumas alterações autorais
+ - com algumas alterações autorais
 </p>
 
 
