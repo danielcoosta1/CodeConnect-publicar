@@ -107,23 +107,55 @@ listaTags.addEventListener("click", (evento)=>{
 });
 
 
-const tagsDisponiveis = ["Front-End","Programação","Data Science","Full Stack","HTML"
-, "CSS","JavaScript","React", "Angular","Java","PHP","Front-End","NodeJS"];
+// const tagsDisponiveis = ["Front-End","Programação","Data Science","Full Stack","HTML"
+// , "CSS","JavaScript","React", "Angular","Java","PHP","Front-End","NodeJS"];
 
-// Evento para verificar se a tag é válida
-async function verificarTagsDisponiveis(tagTexto) {
-    return new Promise ((resolve,reject)=>{
-      setTimeout(() => {
-        if (!tagsDisponiveis.includes(tagTexto)) {
-          reject("Tipo de TAG indisponível");
-          return;
-        } else {
-          resolve("Tag disponível");
-        }
+// // Evento para verificar se a tag é válida
+// async function verificarTagsDisponiveis(tagTexto) {
+//     return new Promise ((resolve,reject)=>{
+//       setTimeout(() => {
+//         if (!tagsDisponiveis.includes(tagTexto)) {
+//           reject("Tipo de TAG indisponível");
+//           return;
+//         } else {
+//           resolve("Tag disponível");
+//         }
       
-      }, 1000);
-    });
+//       }, 1000);
+//     });
+// }
+
+
+let tagsDisponiveis = [];
+getData();
+
+async function getData() {
+  const res = await fetch("tags.json");
+  tagsDisponiveis = await res.json();
 }
+
+
+async function verificarTagsDisponiveis(tag,tagsUsadas){
+  const tagsDisponiveisNome = tagsDisponiveis.map((tag=>{
+    return tag.nome
+  }));
+  return new Promise((resolve, reject) => {
+    //verificando se a tag é relacionada a TI/PROGRAMAÇÃO - Verificando através de uma lista de tags no arquivo tags.json
+    if(!tagsDisponiveisNome.includes(tag)){
+      reject("Tag não disponível");
+      return
+    } else if (tagsUsadas.includes(tag)) {
+      reject("Tag já usada");
+      return
+    } else {
+      resolve("Tag disponível!")
+    }
+    
+  });
+}
+
+
+
 
 //Evento de mostrar a tag escolhida(válida) na tela
 inputTags.addEventListener("keypress", async (evento)=>{
